@@ -39,7 +39,6 @@ public class CollectionTestSuite {
         sampleList.add(6);
 
         ArrayList<Integer> normalList = new ArrayList<>();
-        Random generator = new Random();
         for (int i=0; i<6; i++) {
             normalList.add(i+1);
         }
