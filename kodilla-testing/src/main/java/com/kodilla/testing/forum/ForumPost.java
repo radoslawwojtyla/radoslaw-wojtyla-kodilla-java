@@ -1,11 +1,12 @@
 package com.kodilla.testing.forum;
 
 public class ForumPost {
-        String postBody;
-        String author;
+    String postBody;
+    String author;
 
-    public ForumPost(String postBody) {
+    public ForumPost(String postBody, String author) {
         this.postBody = postBody;
+        this.author = author;
     }
 
     public String getPostBody() {
@@ -19,18 +20,18 @@ public class ForumPost {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof ForumPost)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
 
         ForumPost forumPost = (ForumPost) o;
 
-        if (!getPostBody().equals(forumPost.getPostBody())) return false;
-        return getAuthor().equals(forumPost.getAuthor());
+        if (!postBody.equals(forumPost.postBody)) return false;
+        return author.equals(forumPost.author);
     }
 
     @Override
     public int hashCode() {
-        int result = getPostBody().hashCode();
-        result = 31 * result + getAuthor().hashCode();
+        int result = postBody.hashCode();
+        result = 31 * result + author.hashCode();
         return result;
     }
 }
