@@ -38,15 +38,15 @@ public class StatsData {
     }
 
     public int calculateAdvStatistics(Statistics statistics) {
-        int usersNumber = statistics.usersNames().size();
-        int postsNumber = statistics.postsCount();
-        int commentsNumber = statistics.commentsCount();
+        usersNumber = statistics.usersNames().size();
+        postsNumber = statistics.postsCount();
+        commentsNumber = statistics.commentsCount();
         if (usersNumber > 0) {
-            double postsAveragePerUser = postsNumber / usersNumber;
-            double commentsAveragePerUser = commentsNumber / usersNumber;
+            postsAveragePerUser = postsNumber / usersNumber;
+            commentsAveragePerUser = commentsNumber / usersNumber;
         }
         if (postsNumber > 0) {
-            double commentsAveragePerPost = commentsNumber / postsNumber;
+            commentsAveragePerPost = commentsNumber / (double) postsNumber;
         }
         return 0;
     }
