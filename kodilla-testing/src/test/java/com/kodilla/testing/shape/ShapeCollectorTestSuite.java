@@ -25,36 +25,39 @@ public class ShapeCollectorTestSuite {
 
     @Test
     public void testAddFigure() {
+        //Given
         Shape circle = new Circle("Circle", 4);
         ShapeCollector sampleShape = new ShapeCollector();
-
+        //When
         sampleShape.addFigure(circle);
-
+        //Then
         Assert.assertEquals(circle, sampleShape.getFigure(0));
     }
 
     @Test
     public void testRemoveFigure() {
+        //Given
         Shape square = new Square("Square", 3);
         Shape triangle = new Triangle("Triangle", 3, 4);
         ShapeCollector sampleShape = new ShapeCollector();
-
+        //When
         sampleShape.addFigure(square);
         sampleShape.addFigure(triangle);
         sampleShape.removeFigure(square);
-
+        //Then
         Assert.assertEquals(triangle, sampleShape.getFigure(0));
     }
 
     @Test
     public void testGetFigure() {
+        //Given
         Shape triangle = new Triangle("Triangle", 3, 4);
         ShapeCollector sampleShape = new ShapeCollector();
         sampleShape.addFigure(triangle);
-
+        //When
         Shape triangleToCompare;
         triangleToCompare = sampleShape.getFigure(0);
-
+        //Then
         Assert.assertEquals(triangle, triangleToCompare);
     }
 }
