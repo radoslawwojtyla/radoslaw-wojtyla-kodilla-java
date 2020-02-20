@@ -99,10 +99,10 @@ public class StatsDataTestSuite {
         statsData.calculateAdvStatistics(statisticsMock);
         //Then
         Assert.assertEquals(100, statsData.getUsersNumber());
-        Assert.assertEquals(0, statsData.getPostsNumber());
-        Assert.assertEquals(1000, statsData.getCommentsNumber());
-        Assert.assertEquals(0, statsData.getPostsAveragePerUser(),1e-8);
-        Assert.assertEquals(10, statsData.getCommentsAveragePerUser(),1e-8);
+        Assert.assertEquals(1000, statsData.getPostsNumber());
+        Assert.assertEquals(0, statsData.getCommentsNumber());
+        Assert.assertEquals(10, statsData.getPostsAveragePerUser(),1e-8);
+        Assert.assertEquals(0, statsData.getCommentsAveragePerUser(),1e-8);
         Assert.assertEquals(0, statsData.getCommentsAveragePerPost(),1e-8);
     }
 
