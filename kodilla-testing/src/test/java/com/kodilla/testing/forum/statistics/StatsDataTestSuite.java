@@ -13,16 +13,6 @@ import static org.mockito.Mockito.when;
 
 public class StatsDataTestSuite {
 
-    @Before
-    public void beforeTest() {
-        int usersNumber = 50;
-        int postsNumber = 100;
-        int commentsNumber = 1000;
-        double postsAveragePerUser = postsNumber / (double) usersNumber;
-        double commentsAveragePerUser = commentsNumber / (double) usersNumber;
-        double commentsAveragePerPost = postsNumber / (double) commentsNumber;
-    }
-
     @Test
     public void test0posts0users() {
         //Given
