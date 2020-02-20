@@ -150,18 +150,22 @@ public class StatsDataTestSuite {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         StatsData statsData = new StatsData(statisticsMock);
+        ArrayList<String> userNumbers100 = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            userNumbers100.add("Unknown User");
+        }
 
-        when(statisticsMock.usersNames()).thenReturn(new ArrayList<String>());
+        when(statisticsMock.usersNames()).thenReturn(userNumbers100);
         when(statisticsMock.postsCount()).thenReturn(10);
         when(statisticsMock.commentsCount()).thenReturn(100);
         //When
         statsData.calculateAdvStatistics(statisticsMock);
         //Then
-        Assert.assertEquals(0, statsData.getUsersNumber());
+        Assert.assertEquals(100, statsData.getUsersNumber());
         Assert.assertEquals(10, statsData.getPostsNumber());
         Assert.assertEquals(100, statsData.getCommentsNumber());
-        Assert.assertEquals(0, statsData.getPostsAveragePerUser(),1e-8);
-        Assert.assertEquals(0, statsData.getCommentsAveragePerUser(),1e-8);
+        Assert.assertEquals(0.1, statsData.getPostsAveragePerUser(),0.1);
+        Assert.assertEquals(1, statsData.getCommentsAveragePerUser(),1e-8);
         Assert.assertEquals(10, statsData.getCommentsAveragePerPost(),1e-8);
     }
 
@@ -170,18 +174,22 @@ public class StatsDataTestSuite {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         StatsData statsData = new StatsData(statisticsMock);
+        ArrayList<String> userNumbers100 = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            userNumbers100.add("Unknown User");
+        }
 
-        when(statisticsMock.usersNames()).thenReturn(new ArrayList<String>());
+        when(statisticsMock.usersNames()).thenReturn(userNumbers100);
         when(statisticsMock.postsCount()).thenReturn(100);
         when(statisticsMock.commentsCount()).thenReturn(10);
         //When
         statsData.calculateAdvStatistics(statisticsMock);
         //Then
-        Assert.assertEquals(0, statsData.getUsersNumber());
+        Assert.assertEquals(100, statsData.getUsersNumber());
         Assert.assertEquals(100, statsData.getPostsNumber());
         Assert.assertEquals(10, statsData.getCommentsNumber());
-        Assert.assertEquals(0, statsData.getPostsAveragePerUser(),1e-8);
-        Assert.assertEquals(0, statsData.getCommentsAveragePerUser(),1e-8);
+        Assert.assertEquals(1, statsData.getPostsAveragePerUser(),1e-8);
+        Assert.assertEquals(0.1, statsData.getCommentsAveragePerUser(),0.1);
         Assert.assertEquals(0.1, statsData.getCommentsAveragePerPost(),1e-8);
     }
 }
