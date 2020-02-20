@@ -85,4 +85,47 @@ public class BookDirectoryTestSuite {
         assertEquals(0, theListOfBooks10.size());
         verify(libraryDatabaseMock, times(0)).listBooksWithCondition(anyString());
     }
+
+    // test for listBooksInHandsOf(LibraryUser libraryUser)
+    @Test
+    public void testNoBookBorrowed() {
+        //Given
+        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        List<Book> booksBorrowed = new ArrayList<>();
+        LibraryUser user1 = new LibraryUser("John", "Smith", "00000000000");
+        when(libraryDatabaseMock.listBooksInHandsOf(user1)).thenReturn(booksBorrowed);
+        //When
+        List<Book> booksInHandsUser1 = bookLibrary.listBooksInHandsOf(user1);
+        //Then
+        assertEquals(0, booksInHandsUser1.size());
+    }
+
+    @Test
+    public void test1booksBorrowed() {
+        //Given
+        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        List<Book> booksBorrowed = generateListOfNBooks(1);
+        LibraryUser user1 = new LibraryUser("John", "Smith", "00000000000");
+        when(libraryDatabaseMock.listBooksInHandsOf(user1)).thenReturn(booksBorrowed);
+        //When
+        List<Book> booksInHandsUser1 = bookLibrary.listBooksInHandsOf(user1);
+        //Then
+        assertEquals(1, booksInHandsUser1.size());
+    }
+
+    @Test
+    public void test5booksBorrowed() {
+        //Given
+        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        List<Book> booksBorrowed = generateListOfNBooks(5);
+        LibraryUser user1 = new LibraryUser("John", "Smith", "00000000000");
+        when(libraryDatabaseMock.listBooksInHandsOf(user1)).thenReturn(booksBorrowed);
+        //When
+        List<Book> booksInHandsUser1 = bookLibrary.listBooksInHandsOf(user1);
+        //Then
+        assertEquals(5, booksInHandsUser1.size());
+    }
 }

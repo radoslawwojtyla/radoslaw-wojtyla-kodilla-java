@@ -22,8 +22,9 @@ public class BookLibrary {
         return bookList;
     }
 
-    public void listBooksInHandsOf(LibraryUser libraryUser) {
-        HashMap<Book, LibraryUser> booksBorrowed = new HashMap<>();
-
+    public List<Book> listBooksInHandsOf(LibraryUser libraryUser) {
+        List<Book> bookBorrowed = new ArrayList<>();
+        bookBorrowed = libraryDatabase.listBooksInHandsOf(libraryUser);
+        return bookBorrowed;
     }
 }
