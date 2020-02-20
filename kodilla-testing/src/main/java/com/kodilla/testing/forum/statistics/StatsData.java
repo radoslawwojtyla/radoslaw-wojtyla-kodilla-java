@@ -17,6 +17,10 @@ public class StatsData {
         this.statistics = statistics;
     }
 
+    public int getUsersNumber() {
+        return usersNumber;
+    }
+
     public int getPostsNumber() {
         return postsNumber;
     }
