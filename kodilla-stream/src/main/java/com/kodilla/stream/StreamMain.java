@@ -1,6 +1,7 @@
 package com.kodilla.stream;
 
 import com.kodilla.stream.beautifier.PoemBeautifier;
+import com.kodilla.stream.iterate.NumbersGenerator;
 import com.kodilla.stream.lambda.ExecuteSaySomething;
 import com.kodilla.stream.lambda.Executor;
 import com.kodilla.stream.lambda.ExpressionExecutor;
@@ -12,7 +13,8 @@ import static jdk.nashorn.internal.objects.NativeString.toUpperCase;
 public class StreamMain {
     public static void main(String[] args) {
 
-        // MODULE 7.1 - bootcamp
+// MODULE 7.1
+
 //        Processor processor = new Processor();
 //        Executor codeToExecute = () -> System.out.println("This is an example text.");
 //        processor.execute(codeToExecute);
@@ -31,11 +33,16 @@ public class StreamMain {
 ////        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::subBFromA);
 ////        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::divideAByB);
 
-        // MODULE 7.1 - exercise
-        PoemBeautifier poemBeautifier = new PoemBeautifier();
-        poemBeautifier.beautify("exercise number 7.1", text -> "WHOA! " + text);
-        poemBeautifier.beautify("exercise number 7.1", text -> toUpperCase(text));
-        poemBeautifier.beautify("exercise number 7.1", text -> text.replace("e","3"));
-        poemBeautifier.beautify("exercise number 7.1", text -> text.concat(" is done!"));;
+// MODULE 7.1 - exercise
+
+//        PoemBeautifier poemBeautifier = new PoemBeautifier();
+//        poemBeautifier.beautify("exercise number 7.1", text -> "WHOA! " + text);
+//        poemBeautifier.beautify("exercise number 7.1", text -> toUpperCase(text));
+//        poemBeautifier.beautify("exercise number 7.1", text -> text.replace("e","3"));
+//        poemBeautifier.beautify("exercise number 7.1", text -> text.concat(" is done!"));;
+
+// MODULE 7.2
+        System.out.println("Using Stream to generate even numbers from 1 to 20");
+        NumbersGenerator.generateEven(20);
     }
 }
