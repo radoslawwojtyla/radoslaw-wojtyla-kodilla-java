@@ -15,7 +15,6 @@ import com.kodilla.stream.reference.FunctionalCalculator;
 import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 import jdk.nashorn.internal.objects.NativeString;
 
-import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.List;
