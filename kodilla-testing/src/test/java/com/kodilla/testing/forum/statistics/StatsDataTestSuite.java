@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,19 +12,26 @@ import static org.mockito.Mockito.when;
 
 public class StatsDataTestSuite {
 
-    @Test
-    public void test0posts1000comments100users() {
-        //Given
-        Statistics statisticsMock = mock(Statistics.class);
-        StatsData statsData = new StatsData(statisticsMock);
+    private Statistics statisticsMock;
+
+    @Before
+    public void setUp() {
+        statisticsMock = mock(Statistics.class);
         ArrayList<String> userNumbers100 = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
             userNumbers100.add("Unknown User");
         }
 
         when(statisticsMock.usersNames()).thenReturn(userNumbers100);
-        when(statisticsMock.postsCount()).thenReturn(0);
+        when(statisticsMock.postsCount()).thenReturn(1000);
         when(statisticsMock.commentsCount()).thenReturn(1000);
+    }
+
+    @Test
+    public void test0posts1000comments100users() {
+        //Given
+        StatsData statsData = new StatsData(statisticsMock);
+        when(statisticsMock.postsCount()).thenReturn(0);
         //When
         statsData.calculateAdvStatistics(statisticsMock);
         //Then
@@ -40,13 +46,10 @@ public class StatsDataTestSuite {
     @Test
     public void test1000posts1000comments0users() {
         //Given
-        Statistics statisticsMock = mock(Statistics.class);
         StatsData statsData = new StatsData(statisticsMock);
         List<String> userNumbers0 = new ArrayList<>();
 
         when(statisticsMock.usersNames()).thenReturn(userNumbers0);
-        when(statisticsMock.postsCount()).thenReturn(1000);
-        when(statisticsMock.commentsCount()).thenReturn(1000);
         //When
         statsData.calculateAdvStatistics(statisticsMock);
         //Then
@@ -61,16 +64,8 @@ public class StatsDataTestSuite {
     @Test
     public void test1000posts1000comments100users() {
         //Given
-        Statistics statisticsMock = mock(Statistics.class);
         StatsData statsData = new StatsData(statisticsMock);
-        ArrayList<String> userNumbers100 = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            userNumbers100.add("Unknown User");
-        }
 
-        when(statisticsMock.usersNames()).thenReturn(userNumbers100);
-        when(statisticsMock.postsCount()).thenReturn(1000);
-        when(statisticsMock.commentsCount()).thenReturn(1000);
         //When
         statsData.calculateAdvStatistics(statisticsMock);
         //Then
@@ -85,15 +80,7 @@ public class StatsDataTestSuite {
     @Test
     public void test1000posts0comments100users() {
         //Given
-        Statistics statisticsMock = mock(Statistics.class);
         StatsData statsData = new StatsData(statisticsMock);
-        ArrayList<String> userNumbers100 = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            userNumbers100.add("Unknown User");
-        }
-
-        when(statisticsMock.usersNames()).thenReturn(userNumbers100);
-        when(statisticsMock.postsCount()).thenReturn(1000);
         when(statisticsMock.commentsCount()).thenReturn(0);
         //When
         statsData.calculateAdvStatistics(statisticsMock);
@@ -110,14 +97,7 @@ public class StatsDataTestSuite {
     @Test
     public void moreCommentsThanPosts() {
         //Given
-        Statistics statisticsMock = mock(Statistics.class);
         StatsData statsData = new StatsData(statisticsMock);
-        ArrayList<String> userNumbers100 = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            userNumbers100.add("Unknown User");
-        }
-
-        when(statisticsMock.usersNames()).thenReturn(userNumbers100);
         when(statisticsMock.postsCount()).thenReturn(10);
         when(statisticsMock.commentsCount()).thenReturn(100);
         //When
@@ -134,14 +114,7 @@ public class StatsDataTestSuite {
     @Test
     public void lessCommentsThanPosts() {
         //Given
-        Statistics statisticsMock = mock(Statistics.class);
         StatsData statsData = new StatsData(statisticsMock);
-        ArrayList<String> userNumbers100 = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            userNumbers100.add("Unknown User");
-        }
-
-        when(statisticsMock.usersNames()).thenReturn(userNumbers100);
         when(statisticsMock.postsCount()).thenReturn(100);
         when(statisticsMock.commentsCount()).thenReturn(10);
         //When
