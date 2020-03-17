@@ -1,18 +1,17 @@
 package com.kodilla.stream.array;
 
-import com.sun.corba.se.spi.presentation.rmi.IDLNameTranslator;
-
 import java.util.stream.IntStream;
 
 public interface ArrayOperations {
     static double getAverage(int[] numbers) {
-        IntStream.range(0, numbers.length)
-                .map(n -> numbers[n])
-                .forEach(System.out::print);
-
-        return IntStream.range(0, numbers.length)
-                .map(n -> numbers[n])
+        double average = IntStream.range(0, numbers.length)
+                .map(n -> {
+                    System.out.println(numbers[n]);
+                    return numbers[n];
+                })
                 .average()
                 .getAsDouble();
+        System.out.println(average);
+        return average;
     }
 }

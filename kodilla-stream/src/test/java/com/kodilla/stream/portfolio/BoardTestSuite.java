@@ -2,12 +2,11 @@ package com.kodilla.stream.portfolio;
 
 import org.junit.Assert;
 import org.junit.Test;
+
 import java.time.LocalDate;
-import java.time.Period;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.OptionalDouble;
 
 import static java.util.stream.Collectors.toList;
 
@@ -151,10 +150,9 @@ public class BoardTestSuite {
         double averageTasks = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(tl -> tl.getTasks().stream())
-                .map(t -> ChronoUnit.DAYS.between(t.getCreated(), LocalDate.now()))
-                .mapToInt(x -> x.intValue())
+                .mapToLong(t -> ChronoUnit.DAYS.between(t.getCreated(), LocalDate.now()))
                 .average()
-                .getAsDouble();
+                .orElse(0);
 
         //Then
         Assert.assertEquals(10, averageTasks, 0.001);
