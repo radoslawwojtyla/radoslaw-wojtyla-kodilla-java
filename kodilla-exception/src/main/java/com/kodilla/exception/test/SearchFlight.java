@@ -21,7 +21,7 @@ public class SearchFlight {
     }
 
     public static void main(String[] args) {
-        Flight flight = new Flight("London", "Kiev");
+        Flight flight = new Flight("London", "Warsaw");
         try {
             findFlight(flight);
             System.out.println("The airport exists");
