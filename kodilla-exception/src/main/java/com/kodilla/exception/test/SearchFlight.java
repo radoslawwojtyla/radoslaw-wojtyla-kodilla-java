@@ -13,7 +13,7 @@ public class SearchFlight {
         arrivalAirport.put("Kiev", true);
         arrivalAirport.put("London", false);
 
-        if (arrivalAirport.containsKey(flight.getArrivalAirport()) == false || flight.getDepartureAirport() == null) {
+        if (!(arrivalAirport.containsKey(flight.getArrivalAirport())) || arrivalAirport.containsKey(flight.getDepartureAirport())) {
             throw new RouteNotFoundException("The airport doesn't exist");
         } else {
             return arrivalAirport.get(flight.getArrivalAirport());
