@@ -1,5 +1,7 @@
 package com.kodilla.good.patterns.challenges.order_service;
 
+import java.time.LocalDate;
+
 public class ProductOrderService {
 
     private InformationService informationService;
@@ -10,6 +12,7 @@ public class ProductOrderService {
         this.informationService = informationService;
         this.orderService = orderService;
         this.orderDataBase = orderDataBase;
+        System.out.println("Hello");
     }
 
     public OrderDTO process(OrderRequest orderRequest) {

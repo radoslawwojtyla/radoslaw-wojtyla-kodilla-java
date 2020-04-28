@@ -6,7 +6,7 @@ public class ProductOrderServiceApp {
         OrderRequest orderRequest = orderRequestRetriever.orderRequestRetriever();
 
         ProductOrderService productOrderService = new ProductOrderService(
-                new MessageSender(), new OrderManager(), new OrderList());
+                new SMSSender(), new OrderManager(), new OrderList());
 
         productOrderService.process(orderRequest);
     }
