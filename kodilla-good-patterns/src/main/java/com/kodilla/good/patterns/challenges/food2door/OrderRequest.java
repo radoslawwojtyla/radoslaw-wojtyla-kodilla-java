@@ -2,12 +2,12 @@ package com.kodilla.good.patterns.challenges.food2door;
 
 public class OrderRequest {
     Customer customer;
-    ProductDataBase productDataBase;
+    ShopOffer shopOffer;
     int quantity;
 
-    public OrderRequest(Customer customer, ProductDataBase productDataBase, int quantity) {
+    public OrderRequest(Customer customer, ShopOffer shopOffer, int quantity) {
         this.customer = customer;
-        this.productDataBase = productDataBase;
+        this.shopOffer = shopOffer;
         this.quantity = quantity;
     }
 
@@ -15,8 +15,8 @@ public class OrderRequest {
         return customer;
     }
 
-    public ProductDataBase getProductDataBase() {
-        return productDataBase;
+    public ShopOffer getShopOffer() {
+        return shopOffer;
     }
 
     public int getQuantity() {
