@@ -12,21 +12,24 @@ public class HealthyShop implements OrderService {
 
     @Override
     public void process(OrderRequest orderRequest) {
-        System.out.println("Witamy w HEALTHY SHOP. Dziekujemy za skorzystanie z oferty naszego sklepu. Zapewniamy najswiezsza produkty w przystepnych cenach");
-        if (shopOfferList.contains(orderRequest.getShopOffer().getSupplier())) {
-            supplierFound = true;
+        System.out.println("Witamy w HEALTHY SHOP. Dziekujemy za skorzystanie z oferty naszego sklepu. Zapewniamy najswiezsza produkty w przystepnych cenach.");
+        for (ShopOffer offer : shopOfferList) {
+            if (orderRequest.getShopOffer().getSupplier().getSupplierName().equals(offer.getSupplier().getSupplierName())) {
+                supplierFound = true;
+            }
+            if (orderRequest.getShopOffer().getProduct().getProductName().equals(offer.getProduct().getProductName())) {
+                productFound = true;
+            }
+            if (orderRequest.getQuantity() <= offer.getAvailableQuantity()) {
+                availability = true;
+            }
         }
-        if (shopOfferList.contains(orderRequest.getShopOffer().getProduct())) {
-            productFound = true;
-        }
-        if (orderRequest.getShopOffer().getAvailableQuantity() >= orderRequest.quantity) {
-            availability = true;
-        }
+
         if (supplierFound && productFound && availability) {
             System.out.println("Dziekujemy za zlozenie zamowienia: " + orderRequest.getShopOffer().getProduct());
             System.out.println("Prosimy o dokonanie platnosci w kwocie: " + orderRequest.getQuantity() * orderRequest.getShopOffer().getPrice());
         } else {
-            System.out.println("Niestety nie mozemy zrealizowac zamowienia. Prosimy o jego ponowne zlozenie, uwzględniając dostepnosc produktu");
+            System.out.println("Niestety nie mozemy zrealizowac zamowienia. Prosimy o jego ponowne zlozenie, uwzględniając dostepnosc produktu.");
         }
     }
 }

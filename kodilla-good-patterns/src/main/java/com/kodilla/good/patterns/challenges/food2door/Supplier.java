@@ -13,7 +13,14 @@ public class Supplier {
         return supplierName;
     }
 
+    @Override
+    public String toString() {
+        return  supplierName;
+    }
+
     public String getCity() {
         return city;
+
+
     }
 }
