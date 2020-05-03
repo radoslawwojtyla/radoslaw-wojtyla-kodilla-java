@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductDataBase {
-    List<Product> productList = new ArrayList<>();
+
+    final List<Product> productList = new ArrayList<>();
 
     public List<Product> addProduct() {
         productList.add(new Product("Mleko pełnotłuste", "Nabiał"));

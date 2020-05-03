@@ -1,15 +1,14 @@
 package com.kodilla.good.patterns.challenges.food2door;
 
-import java.util.Set;
-
-import static java.util.stream.Collectors.toSet;
+import java.util.List;
 
 public class GlutenFreeShop implements OrderService {
-    Set<ShopOffer> shopOfferList;
+    ShopOfferDataBase shopOfferDataBase = new ShopOfferDataBase();
+    List<ShopOffer> shopOfferList = shopOfferDataBase.addShopOffer();
     boolean confirmation = false;
 
     @Override
-    public void process(Customer customer, OrderRequest orderRequest) {
+    public void process(OrderRequest orderRequest) {
         for (ShopOffer offer : shopOfferList) {
             if (orderRequest.getShopOffer().getSupplier().equals(offer.getSupplier())) {
                 if (orderRequest.getShopOffer().getProduct().equals(offer.getProduct())) {

@@ -1,15 +1,15 @@
 package com.kodilla.good.patterns.challenges.food2door;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class ShopOfferDataBase {
-    List<Product> productList;
-    List<Supplier> supplierList;
-    Set<ShopOffer> shopOfferList = new HashSet<>();
+    List<ShopOffer> shopOfferList = new ArrayList<>();
+    ProductDataBase productDataBase = new ProductDataBase();
+    List<Product> productList = productDataBase.addProduct();
+    SupplierDataBase supplierDataBase = new SupplierDataBase();
+    List<Supplier> supplierList = supplierDataBase.addSupplier();
 
-    public Set<ShopOffer> shopOfferDataBase() {
+    public List<ShopOffer> addShopOffer() {
         shopOfferList.add(new ShopOffer(supplierList.get(0), productList.get(0), 100, 3.99 ));
         shopOfferList.add(new ShopOffer(supplierList.get(0), productList.get(2), 40,3.00));
         shopOfferList.add(new ShopOffer(supplierList.get(0), productList.get(3), 10,6.99));

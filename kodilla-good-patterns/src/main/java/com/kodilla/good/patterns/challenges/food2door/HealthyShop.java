@@ -1,15 +1,17 @@
 package com.kodilla.good.patterns.challenges.food2door;
 
+import java.util.List;
 import java.util.Set;
 
 public class HealthyShop implements OrderService {
-    Set<ShopOffer> shopOfferList;
+    ShopOfferDataBase shopOfferDataBase = new ShopOfferDataBase();
+    List<ShopOffer> shopOfferList = shopOfferDataBase.addShopOffer();
     boolean supplierFound = false;
     boolean productFound = false;
     boolean availability = false;
 
     @Override
-    public void process(Customer customer, OrderRequest orderRequest) {
+    public void process(OrderRequest orderRequest) {
         System.out.println("Witamy w HEALTHY SHOP. Dziekujemy za skorzystanie z oferty naszego sklepu. Zapewniamy najswiezsza produkty w przystepnych cenach");
         if (shopOfferList.contains(orderRequest.getShopOffer().getSupplier())) {
             supplierFound = true;

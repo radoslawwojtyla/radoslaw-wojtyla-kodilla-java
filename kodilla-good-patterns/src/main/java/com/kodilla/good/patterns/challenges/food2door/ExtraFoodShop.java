@@ -1,17 +1,20 @@
 package com.kodilla.good.patterns.challenges.food2door;
 
-import java.util.Set;
+import java.util.List;
 
 public class ExtraFoodShop implements OrderService {
-    Set<ShopOffer> shopOfferList;
+    Customer customer;
+    ShopOfferDataBase shopOfferDataBase = new ShopOfferDataBase();
+    List<ShopOffer> shopOfferList = shopOfferDataBase.addShopOffer();
 
     @Override
-    public void process(Customer customer, OrderRequest orderRequest) {
+    public void process(OrderRequest orderRequest) {
+        customer = orderRequest.getCustomer();
         System.out.println("Witaj " + customer + "! Dziekujemy za zaufanie, jakim darzysz nasza firme.");
         boolean result = shopOfferList.stream()
-                .filter(order -> order.getSupplier().equals(orderRequest.getShopOffer().getSupplier()))
-                .filter(order -> order.getProduct().equals(orderRequest.getShopOffer().getProduct()))
-                .filter(order -> order.getAvailableQuantity() <= orderRequest.getQuantity())
+                .filter(order -> order.getSupplier().getSupplierName().equals(orderRequest.getShopOffer().getSupplier().getSupplierName()))
+                .filter(order -> order.getProduct().getProductName().equals(orderRequest.getShopOffer().getProduct().getProductName()))
+                .filter(order -> order.getAvailableQuantity() >= orderRequest.getQuantity())
                 .map(o -> true)
                 .findAny()
                 .orElse(false);

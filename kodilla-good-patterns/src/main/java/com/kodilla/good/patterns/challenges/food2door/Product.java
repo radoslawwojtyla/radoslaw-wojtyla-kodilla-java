@@ -1,20 +1,26 @@
 package com.kodilla.good.patterns.challenges.food2door;
 
 public class Product {
-    String product;
+    String productName;
     String type;
 
-    public Product(String product, String type) {
-        this.product = product;
+    public Product(String productName, String type) {
+        this.productName = productName;
         this.type = type;
     }
 
-    public String getProduct() {
-        return product;
+    public String getProductName() {
+        return productName;
     }
 
     public String getType() {
         return type;
     }
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "product='" + productName + '\'' +
+                '}';
+    }
 }

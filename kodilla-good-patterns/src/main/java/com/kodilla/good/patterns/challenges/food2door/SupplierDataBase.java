@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SupplierDataBase {
-    List<Supplier> supplierList = new ArrayList<>();
+    final List<Supplier> supplierList = new ArrayList<>();
 
     public List<Supplier> addSupplier() {
         supplierList.add(new Supplier("ExtraFoodShop", "Poznan"));

@@ -16,4 +16,9 @@ public class Customer {
     public String getDeliveryAddress() {
         return deliveryAddress;
     }
+
+    @Override
+    public String toString() {
+        return userName;
+    }
 }
