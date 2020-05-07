@@ -11,8 +11,10 @@ public class BoardConfig {
     @Qualifier("toDoList")
     TaskList toDoList;
     @Autowired
+    @Qualifier("inProgressList")
     TaskList inProgressList;
     @Autowired
+    @Qualifier("doneList")
     TaskList doneList;
 
     @Bean
@@ -20,19 +22,18 @@ public class BoardConfig {
         return new Board(toDoList, inProgressList, doneList);
     }
 
-    @Bean (name = "toDoList")
+    @Bean(name = "toDoList")
     public TaskList getToDoList() {
         return new TaskList();
     }
 
-    @Bean (name = "inProgressList")
+    @Bean(name = "inProgressList")
     public TaskList getInProgressList() {
         return new TaskList();
     }
 
-    @Bean (name = "doneList")
+    @Bean(name = "doneList")
     public TaskList getDoneList() {
         return new TaskList();
     }
-
 }
