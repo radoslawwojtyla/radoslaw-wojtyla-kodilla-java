@@ -1,13 +1,45 @@
+//package com.kodilla.spring.intro.shape;
+//
+//public class Drawer {
+//    public void doDrawing() {
+//        Figure figure;
+//
+//        figure = new Circle();
+//        figure.draw();
+//
+//        figure = new Triangle();
+//        figure.draw();
+//    }
+//}
+
+
+
+//package com.kodilla.spring.intro.shape;
+//
+//public class Drawer {
+//    public void doDrawing() {
+//        Shape shape;
+//
+//        shape = new Circle();
+//        shape.draw();
+//
+//        shape = new Triangle();
+//        shape.draw();
+//    }
+//}
+
+
+
 package com.kodilla.spring.intro.shape;
 
 public class Drawer {
-    public void doDrawing() {
-        Figure figure;
+    final Shape shape;
 
-        figure = new Circle();
-        figure.draw();
+    public Drawer(final Shape shape) {
+        this.shape = shape;
+    }
 
-        figure = new Triangle();
-        figure.draw();
+    public String doDrawing() {
+        return shape.draw();
     }
 }
