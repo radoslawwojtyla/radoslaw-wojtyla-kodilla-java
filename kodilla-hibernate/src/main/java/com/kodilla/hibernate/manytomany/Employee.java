@@ -5,10 +5,16 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@NamedQuery(
-        name = "Employee.searchEmployeeByLastName",
-        query = "FROM Employee WHERE lastname = :LASTNAME"
-)
+@NamedQueries({
+        @NamedQuery(
+                name = "Employee.searchEmployeeByLastName",
+                query = "FROM Employee WHERE lastname = :LASTNAME"
+        ),
+        @NamedQuery(
+                name = "Employee.searchEmployeeByAnyPattern",
+                query = "FROM Employee WHERE lastname LIKE :ARG OR firstname LIKE :ARG"
+        )
+})
 
 @Entity
 @Table(name = "EMPLOYEES")
@@ -17,7 +23,7 @@ public class Employee {
     private String firstname;
     private String lastname;
 
-    @ManyToMany (cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "JOIN_COMPANY_EMPLOYEE",
             joinColumns = {@JoinColumn(name = "EMPLOYEE_ID", referencedColumnName = "EMPLOYEE_ID")},
