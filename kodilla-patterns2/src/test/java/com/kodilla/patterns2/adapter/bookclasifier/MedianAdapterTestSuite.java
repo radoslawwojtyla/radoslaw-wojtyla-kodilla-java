@@ -1,6 +1,6 @@
 package com.kodilla.patterns2.adapter.bookclasifier;
 
-import com.kodilla.patterns2.adapter.bookclasifier.librarya.Book;
+import com.kodilla.patterns2.adapter.bookclasifier.librarya.Book;   
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
