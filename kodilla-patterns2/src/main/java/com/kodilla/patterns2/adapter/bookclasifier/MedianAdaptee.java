@@ -1,6 +1,6 @@
 package com.kodilla.patterns2.adapter.bookclasifier;
 
-import com.kodilla.patterns2.adapter.bookclasifier.libraryb.BookB;
+import com.kodilla.patterns2.adapter.bookclasifier.libraryb.Book;
 import com.kodilla.patterns2.adapter.bookclasifier.libraryb.BookSignature;
 import com.kodilla.patterns2.adapter.bookclasifier.libraryb.BookStatistics;
 import com.kodilla.patterns2.adapter.bookclasifier.libraryb.Statistics;
@@ -11,11 +11,11 @@ public class MedianAdaptee implements BookStatistics {
     Statistics statistics = new Statistics();
 
     @Override
-    public int averagePublicationYear(Map<BookSignature, BookB> books) {
+    public int averagePublicationYear(Map<BookSignature, Book> books) {
         return statistics.averagePublicationYear(books);
     }
     @Override
-    public int medianPublicationYear(Map<BookSignature, BookB> books) {
+    public int medianPublicationYear(Map<BookSignature, Book> books) {
         return statistics.medianPublicationYear(books);
     }
 }
